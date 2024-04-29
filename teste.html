@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sistema de Controle de Combustível</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style_GAS.css"> 
+   
+  </head>
+  <body>
+    <div class="all">
+      <header>
+        <nav class="navbar navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">Sistema de Controle de Combustível</a>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Conta</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class=" btn-logout" href="#">Logout</a>
+              </li>
+          </ul>
+        </nav>
+      </header>
+      <main class="container mt-5">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Bomba de Gasolina</h5>
+                <img src="gasolina3.png"  width="100" height="100">
+                <form id="form-gasolina">
+                  <div class="form-group">
+                    <label for="quantidade-gasolina">Quantidade (litros)</label>
+                    <input type="number" class="form-control" id="quantidade-gasolina" name="quantidade-gasolina" required>
+                  </div>
+                  <span id="preco-gasolina" class="text-muted">Preço: $4.50</span>
+                  <button type="submit" class="btn btn-primary">Registrar Saída</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Bomba de Etanol</h5>
+                <img src="etanol.png" width="100" height="100">
+                <form id="form-etanol">
+                  <div class="form-group">
+                    <label for="quantidade-etanol">Quantidade (litros)</label>
+                    <input type="number" class="form-control" id="quantidade-etanol" name="quantidade-etanol" required>
+                  </div>
+                  <span id="preco-gasolina" class="text-muted">Preço: $6.00</span>
+                  <button type="submit" class="btn btn-primary">Registrar Saída</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div> 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+      
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Seleciona o input de quantidade de gasolina
+    var inputGasolina = document.getElementById('quantidade-gasolina');
+    // Adiciona um ouvinte de evento para detectar mudanças no input de quantidade de gasolina
+    inputGasolina.addEventListener('input', function() {
+      // Obtém o valor inserido pelo usuário
+      var quantidadeGasolina = parseFloat(inputGasolina.value);
+      // Calcula o preço com base na quantidade de litros
+      var precoGasolina = calcularPrecoGasolina(quantidadeGasolina);
+      // Atualiza o valor do preço na tela
+      document.getElementById('preco-gasolina').textContent = 'Preço: $' + precoGasolina.toFixed(2);
+    });
+
+    // Seleciona o input de quantidade de etanol
+    var inputEtanol = document.getElementById('quantidade-etanol');
+    // Adiciona um ouvinte de evento para detectar mudanças no input de quantidade de etanol
+    inputEtanol.addEventListener('input', function() {
+      // Obtém o valor inserido pelo usuário
+      var quantidadeEtanol = parseFloat(inputEtanol.value);
+      // Calcula o preço com base na quantidade de litros
+      var precoEtanol = calcularPrecoEtanol(quantidadeEtanol);
+      // Atualiza o valor do preço na tela
+      document.getElementById('preco-etanol').textContent = 'Preço: $' + precoEtanol.toFixed(2);
+    });
+  });
+
+  // Função para calcular o preço da gasolina
+  function calcularPrecoGasolina(quantidade) {
+    // Coloque aqui a lógica para calcular o preço com base na quantidade de litros
+    // Por exemplo, suponha que o preço seja $4.50 por litro
+    var precoPorLitro = 4.50;
+    return quantidade * precoPorLitro;
+  }
+
+  // Função para calcular o preço do etanol
+  function calcularPrecoEtanol(quantidade) {
+    // Coloque aqui a lógica para calcular o preço com base na quantidade de litros
+    // Por exemplo, suponha que o preço seja $6.00 por litro para o etanol
+    var precoPorLitro = 6.00;
+    return quantidade * precoPorLitro;
+  }
+</script>
+
+  </body>
+</html>
